@@ -59,7 +59,7 @@ export class LeavesNavigatorSettingTab extends PluginSettingTab {
 			);
 		new Setting(containerEl)
 			.setName("Open in new tab")
-			.setDesc("Ctrl/Cmd-click in the panel always opens a new tab.")
+			.setDesc("Ctrl/Cmd-click or middle-click in the panel always opens a new tab.")
 			.addToggle((t) =>
 				t.setValue(s.openInNewTab).onChange(async (v) => {
 					s.openInNewTab = v;

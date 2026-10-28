@@ -323,7 +323,7 @@ var LeavesNavigatorSettingTab = class extends import_obsidian3.PluginSettingTab 
         await this.plugin.saveSettings();
       })
     );
-    new import_obsidian3.Setting(containerEl).setName("Open in new tab").setDesc("Ctrl/Cmd-click in the panel always opens a new tab.").addToggle(
+    new import_obsidian3.Setting(containerEl).setName("Open in new tab").setDesc("Ctrl/Cmd-click or middle-click in the panel always opens a new tab.").addToggle(
       (t) => t.setValue(s.openInNewTab).onChange(async (v) => {
         s.openInNewTab = v;
         await this.plugin.saveSettings();
@@ -433,6 +433,9 @@ var LeavesNavigatorView = class extends import_obsidian4.ItemView {
       li.createSpan({ cls: "leaves-nav-direction", text: directionMark(item) });
       const a = li.createEl("a", { cls: "leaves-nav-link", text: item.file.basename });
       a.addEventListener("click", (evt) => void plugin.openFile(item.file, isNewTab(evt)));
+      a.addEventListener("auxclick", (evt) => {
+        if (evt.button === 1) void plugin.openFile(item.file, true);
+      });
     }
   }
   iconButton(parent, icon, label, onClick) {
@@ -449,7 +452,7 @@ var LeavesNavigatorView = class extends import_obsidian4.ItemView {
   }
 };
 function isNewTab(evt) {
-  return evt.ctrlKey || evt.metaKey || evt.button === 1;
+  return evt.ctrlKey || evt.metaKey;
 }
 
 // src/main.ts
@@ -531,7 +534,7 @@ var LeavesNavigatorPlugin = class extends import_obsidian5.Plugin {
   // ── State ────────────────────────────────────────────────────────────────
   getFocusedBranch() {
     const f = this.app.vault.getAbstractFileByPath(this.settings.focusedBranch);
-    return f instanceof import_obsidian5.TFile ? f : null;
+    return f instanceof import_obsidian5.TFile && this.index.isBranch(f) ? f : null;
   }
   async setFocusedBranchPath(path) {
     this.settings.focusedBranch = path;

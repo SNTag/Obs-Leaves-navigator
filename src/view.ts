@@ -103,6 +103,9 @@ export class LeavesNavigatorView extends ItemView {
 			li.createSpan({ cls: "leaves-nav-direction", text: directionMark(item) });
 			const a = li.createEl("a", { cls: "leaves-nav-link", text: item.file.basename });
 			a.addEventListener("click", (evt) => void plugin.openFile(item.file, isNewTab(evt)));
+			a.addEventListener("auxclick", (evt) => {
+				if (evt.button === 1) void plugin.openFile(item.file, true);
+			});
 		}
 	}
 
@@ -122,5 +125,5 @@ export class LeavesNavigatorView extends ItemView {
 }
 
 function isNewTab(evt: MouseEvent): boolean {
-	return evt.ctrlKey || evt.metaKey || evt.button === 1;
+	return evt.ctrlKey || evt.metaKey;
 }

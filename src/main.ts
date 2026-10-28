@@ -92,7 +92,8 @@ export default class LeavesNavigatorPlugin extends Plugin {
 
 	getFocusedBranch(): TFile | null {
 		const f = this.app.vault.getAbstractFileByPath(this.settings.focusedBranch);
-		return f instanceof TFile ? f : null;
+		// Ignore a saved branch that no longer matches the branch settings.
+		return f instanceof TFile && this.index.isBranch(f) ? f : null;
 	}
 
 	async setFocusedBranchPath(path: string): Promise<void> {
