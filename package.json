@@ -1,0 +1,25 @@
+{
+	"name": "leaves-navigator",
+	"version": "0.1.0",
+	"description": "Focus on a branch note and jump between its leaves: random leaf, or a leaf linked to the current note within the same branch.",
+	"main": "main.js",
+	"scripts": {
+		"dev": "node esbuild.config.mjs",
+		"build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production"
+	},
+	"keywords": [
+		"obsidian",
+		"obsidian-plugin",
+		"navigation",
+		"random-note"
+	],
+	"license": "MPL-2.0",
+	"devDependencies": {
+		"@types/node": "^20.11.0",
+		"builtin-modules": "^3.3.0",
+		"esbuild": "^0.21.5",
+		"obsidian": "^1.5.7",
+		"tslib": "^2.6.2",
+		"typescript": "^5.4.5"
+	}
+}

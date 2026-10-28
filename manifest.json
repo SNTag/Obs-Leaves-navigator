@@ -1,0 +1,9 @@
+{
+	"id": "leaves-navigator",
+	"name": "Leaves Navigator",
+	"version": "0.1.0",
+	"minAppVersion": "1.4.0",
+	"description": "Focus on a branch note and jump between its leaves: random leaf, or a leaf linked to the current note within the same branch.",
+	"author": "SNTag",
+	"isDesktopOnly": false
+}

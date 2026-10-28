@@ -1,0 +1,96 @@
+.leaves-nav {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-4-3);
+}
+
+.leaves-nav-row {
+	display: flex;
+	align-items: center;
+	gap: var(--size-4-1);
+}
+
+.leaves-nav-select {
+	flex: 1;
+	min-width: 0;
+}
+
+.leaves-nav-meta,
+.leaves-nav-empty {
+	color: var(--text-muted);
+	font-size: var(--font-ui-small);
+}
+
+.leaves-nav-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--size-4-2);
+}
+
+.leaves-nav-btn {
+	flex: 1;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: var(--size-4-1);
+}
+
+.leaves-nav-btn-icon {
+	display: inline-flex;
+}
+
+.leaves-nav-btn-icon svg {
+	width: var(--icon-s);
+	height: var(--icon-s);
+}
+
+.leaves-nav-heading {
+	font-size: var(--font-ui-small);
+	color: var(--text-muted);
+	margin-bottom: var(--size-4-1);
+}
+
+.leaves-nav-heading strong {
+	color: var(--text-normal);
+}
+
+.leaves-nav-also {
+	font-size: var(--font-ui-smaller);
+	color: var(--text-muted);
+	margin-bottom: var(--size-4-2);
+}
+
+.leaves-nav-chip {
+	display: inline-block;
+	margin: 0 var(--size-2-2) var(--size-2-2) 0;
+	padding: 0 var(--size-4-2);
+	border-radius: var(--radius-s);
+	background: var(--background-modifier-hover);
+	color: var(--text-normal);
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.leaves-nav-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.leaves-nav-item {
+	display: flex;
+	align-items: baseline;
+	gap: var(--size-4-2);
+	padding: var(--size-2-2) 0;
+}
+
+.leaves-nav-direction {
+	color: var(--text-faint);
+	width: 1.2em;
+	flex-shrink: 0;
+	text-align: center;
+}
+
+.leaves-nav-link {
+	cursor: pointer;
+}
